@@ -1,0 +1,6 @@
+@BundleBuilderApi_HostAddress = http://localhost:5198
+
+GET {{BundleBuilderApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
