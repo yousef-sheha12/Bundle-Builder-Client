@@ -31,7 +31,7 @@ function StepAccordion() {
             >
               <div className="flex flex-col gap-0.5 sm:gap-1">
                 <span className="text-[10px] sm:text-[11px] font-semibold tracking-widest text-gray-400 uppercase">
-                  STEP {step.stepNumber} OF 4
+                  STEP {step.stepNumber} OF {productsData.steps.length}
                 </span>
                 <div className="flex items-center gap-2 sm:gap-2.5">
                   <span className="flex items-center justify-center text-indigo-500">

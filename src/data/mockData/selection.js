@@ -17,4 +17,4 @@ export const CATEGORY_LABELS = {
   plan: "PLAN",
 };
 
-export const CATEGORY_ORDER = ["cameras", "sensors", "protection", "plan"];
+export const CATEGORY_ORDER = ["cameras", "plan", "sensors", "protection"];

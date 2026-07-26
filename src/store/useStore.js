@@ -95,6 +95,7 @@ export const useStore = create((set, get) => ({
         [productId]: variantId,
       },
     }));
+    saveToStorage(get());
   },
 
   incrementQuantity: (productId, variantId = null) => {
@@ -236,13 +237,13 @@ export const useStore = create((set, get) => ({
 
   getSubtotal: () => {
     return get()
-      .getOneTimeItems()
+      .getSelectedItems()
       .reduce((sum, item) => sum + item.price * item.quantity, 0);
   },
 
   getTotalCompareAt: () => {
     return get()
-      .getOneTimeItems()
+      .getSelectedItems()
       .reduce((sum, item) => {
         const cap = item.compareAtPrice || item.price;
         return sum + cap * item.quantity;
@@ -256,10 +257,11 @@ export const useStore = create((set, get) => ({
 
   resetSystem: () => {
     localStorage.removeItem(STORAGE_KEY);
+    const { productsData: pd } = get();
     set({
       activeStep: 0,
       selections: INITIAL_SELECTIONS,
-      activeVariants: buildInitialActiveVariants(localProductsData.products),
+      activeVariants: buildInitialActiveVariants(pd.products),
     });
   },
 }));
