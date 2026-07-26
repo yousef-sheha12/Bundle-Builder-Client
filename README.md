@@ -9,9 +9,9 @@ A multi-step bundle builder for assembling a Wyze security system, built as a Re
 
 ## Repositories
 
-| Repository | Description |
-|---|---|
-| [Bundle-Builder-Client](https://github.com/yousef-sheha12/Bundle-Builder-Client) | React frontend |
+| Repository                                                                       | Description        |
+| -------------------------------------------------------------------------------- | ------------------ |
+| [Bundle-Builder-Client](https://github.com/yousef-sheha12/Bundle-Builder-Client) | React frontend     |
 | [Bundle-Builder-Server](https://github.com/yousef-sheha12/Bundle-Builder-Server) | .NET 9 backend API |
 
 ## Architecture
@@ -91,22 +91,14 @@ The frontend is deployed via GitHub Pages on push to `main`.
 
 The backend is deployed automatically to [MonsterASP](https://monsterasp.net) via GitHub Actions on push to `main`.
 
-**GitHub Secrets required:**
-
-| Secret | Description |
-|---|---|
-| `FTP_SERVER` | `site81274.siteasp.net` |
-| `FTP_USERNAME` | `site81274` |
-| `FTP_PASSWORD` | FTP account password |
-
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | React 19, Vite 8, Tailwind CSS v4, Zustand |
-| Backend | .NET 9 Web API (C#) |
-| Hosting | MonsterASP (backend), GitHub Pages (frontend) |
-| CI/CD | GitHub Actions (FTP deployment) |
+| Layer    | Technology                                    |
+| -------- | --------------------------------------------- |
+| Frontend | React 19, Vite 8, Tailwind CSS v4, Zustand    |
+| Backend  | .NET 9 Web API (C#)                           |
+| Hosting  | MonsterASP (backend), GitHub Pages (frontend) |
+| CI/CD    | GitHub Actions (FTP deployment)               |
 
 ## Key Decisions & Tradeoffs
 
@@ -115,10 +107,3 @@ The backend is deployed automatically to [MonsterASP](https://monsterasp.net) vi
 3. **Per-variant quantities**: Products with color variants track each variant's quantity separately. The card stepper shows the active variant's count; selecting a different variant switches the stepper context without losing existing counts.
 4. **Auto-save on every state change**: The store calls `saveToStorage()` on every increment/decrement/step change. The "Save my system for later" button provides explicit user-facing confirmation.
 5. **Environment-based API URL**: The `.env` file controls the API base URL. In production, it points to the MonsterASP server. In development, it can be switched to localhost.
-6. **Shared data source**: `backend/Data/products.json` is the canonical data source. The frontend `src/data/products.json` is kept as a local fallback.
-
-## What's Not Finished
-
-- The "Save my system" button relies on auto-save (localStorage persists on every change). The button confirms the save to the user.
-- Checkout button is a placeholder — shows a toast confirmation only.
-- Mobile responsiveness covers layout stacking and basic padding but could be more refined at very small viewports (< 375px).
