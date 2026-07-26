@@ -4,6 +4,7 @@ import VariantSelector from "./VariantSelector";
 
 function ProductCard({ product }) {
   const { activeVariants, selections } = useStore();
+
   const activeVariantId = product.hasVariants
     ? activeVariants[product.id]
     : null;

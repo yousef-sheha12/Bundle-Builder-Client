@@ -2,8 +2,14 @@ import { useStore } from "../store/useStore";
 import ProductCard from "./ProductCard";
 
 function StepAccordion() {
-  const { activeStep, getStepProductCount, setActiveStep, nextStep, productsData } =
-    useStore();
+  const {
+    activeStep,
+    getStepProductCount,
+    setActiveStep,
+    nextStep,
+    productsData,
+  } = useStore();
+
   return (
     <div className="flex flex-col">
       {productsData.steps.map((step, index) => {

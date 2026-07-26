@@ -2,10 +2,12 @@ import { useStore } from "../store/useStore";
 
 function QuantityStepper({ productId, variantId = null, compact = false }) {
   const { selections, incrementQuantity, decrementQuantity } = useStore();
+
   const quantity =
     variantId !== null
       ? selections[productId]?.[variantId] || 0
       : selections[productId] || 0;
+
   return (
     <div
       className={`inline-flex items-center border border-gray-200 bg-white overflow-hidden ${compact ? "rounded-md" : "rounded-lg"}`}

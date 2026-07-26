@@ -2,9 +2,11 @@ import { useStore } from "../store/useStore";
 
 function VariantSelector({ product }) {
   const { activeVariants, selections, setActiveVariant } = useStore();
+
   if (!product.hasVariants || product.variants.length === 0) return null;
 
   const activeVariantId = activeVariants[product.id];
+
   return (
     <div className="flex gap-1 sm:gap-1.5 flex-wrap mb-2 sm:mb-3">
       {product.variants.map((variant) => {

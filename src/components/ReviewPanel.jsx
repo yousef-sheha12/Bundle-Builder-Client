@@ -4,8 +4,13 @@ import { useStore } from "../store/useStore";
 import QuantityStepper from "./QuantityStepper";
 
 function ReviewPanel() {
-  const { getSelectedItems, getSavings, getSubtotal, getTotalCompareAt, productsData } =
-    useStore();
+  const {
+    getSelectedItems,
+    getSavings,
+    getSubtotal,
+    getTotalCompareAt,
+    productsData,
+  } = useStore();
 
   const items = getSelectedItems();
   const subtotal = getSubtotal();
@@ -18,6 +23,7 @@ function ReviewPanel() {
     label: CATEGORY_LABELS[cat],
     items: items.filter((item) => item.category === cat),
   })).filter((group) => group.items.length > 0);
+
   return (
     <div className="bg-[#EDF4FF] border border-gray-200 rounded-xl p-4 sm:p-6 sticky top-6 shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
       <div className="mb-4 sm:mb-5">
@@ -93,7 +99,7 @@ function ReviewPanel() {
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
-            className="sm:w-[18px] sm:h-[18px]"
+            className="sm:w-4.5 sm:h-4.5"
           >
             <rect x="1" y="3" width="15" height="13" />
             <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
